@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block base %}
+
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>دروس انتخابی
+    (سبدخرید)
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for session_lesson in session_lessons %}
+        <tr>
+        <td>{{ session_lesson.name }}</td>
+        <td>{{ session_lesson.id_number }}</td>
+        <td>{{ session_lessonn.number_of_unit }}</td>
+        <td>{{ session_lesson.teacher }}</td>
+        <td>{{ session_lesson.number_of_student }}</td>
+        <td>{{ session_lesson.term }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% if session_lessons%}
+<a class="btn btn-success col-xs-12 col-sm-12 col-lg-12" href="{% url "app:add_final_lesson" %}">تایید</a>
+{% endif %}
+</div>
+<p>
+>>
+</p>
+
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>
+    دروس نهایی
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for final_selected_lesson in final_selected_lessons %}
+        <tr>
+        <td>{{ final_selected_lesson.name }}</td>
+        <td>{{ final_selected_lesson.id_number }}</td>
+        <td>{{ final_selected_lesson.number_of_unit }}</td>
+        <td>{{ final_selected_lesson.teacher }}</td>
+        <td>{{ final_selected_lesson.number_of_student }}</td>
+        <td>{{ final_selected_lesson.term }}</td>
+        <td><a class="btn btn-danger" href="{% url "app:delete_final" final_selected_lesson.id %}">حذف</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+
+{% endblock %}

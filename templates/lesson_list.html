@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block base %}
+
+<h2>دروس ارایه شده ترم</h2>
+<p>
+{% for message in messages %}
+<div class="alert alert-danger col-xs-12 col-sm-12 col-lg-12" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+</p>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>کامپیوتر ترم 1
+
+</h4>
+
+
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for com_lesson in com_lessons %}
+        <tr>
+        <td>{{ com_lesson.name }}</td>
+        <td>{{ com_lesson.id_number }}</td>
+        <td>{{ com_lesson.number_of_unit }}</td>
+        <td>{{ com_lesson.teacher }}</td>
+        <td>{{ com_lesson.number_of_student }}</td>
+        <td>{{ com_lesson.term }}</td>
+        <td ><a class="btn btn-primary" href="/add/{{ com_lesson.pk }}/">اخذ</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+<br>
+<p> >> </p>
+
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>برق ترم 1
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+        <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for elc_lesson in elc_lessons %}
+        <tr>
+        <td>{{ elc_lesson.name }}</td>
+        <td>{{ elc_lesson.id_number }}</td>
+        <td>{{ elc_lesson.number_of_unit }}</td>
+        <td>{{ elc_lesson.teacher }}</td>
+        <td>{{ elc_lesson.number_of_student }}</td>
+        <td>{{ elc_lesson.term }}</td>
+        <td ><a class="btn btn-primary" href="/add/{{ elc_lesson.pk }}/">اخذ</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+
+<p> >> </p>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>مکانیک ترم 1
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+        <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for mc1_lesson in mc1_lessons %}
+        <tr>
+        <td>{{ mc1_lesson.name }}</td>
+        <td>{{ mc1_lesson.id_number }}</td>
+        <td>{{ mc1_lesson.number_of_unit }}</td>
+        <td>{{ mc1_lesson.teacher }}</td>
+        <td>{{ mc1_lesson.number_of_student }}</td>
+        <td>{{ mc1_lesson.term }}</td>
+        <td ><a class="btn btn-primary" href="/add/{{ elc_lesson.pk }}/">اخذ</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+<hr>
+<p> >> </p>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>مکانیک ترم 2
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+        <tr>
+        <th>نام درس</th>
+        <th>کد درس</th>
+        <th> تعداد واحد</th>
+        <th>استاد درس</th>
+        <th>تعداد دانشجو</th>
+        <th>ترم ارایه شده</th>
+    </tr>
+
+    {% for mc2_lesson in mc2_lessons %}
+        <tr>
+        <td>{{ mc2_lesson.name }}</td>
+        <td>{{ mc2_lesson.id_number }}</td>
+        <td>{{ mc2_lesson.number_of_unit }}</td>
+        <td>{{ mc2_lesson.teacher }}</td>
+        <td>{{ mc2_lesson.number_of_student }}</td>
+        <td>{{ mc2_student.term }}</td>
+        <td ><a class="btn btn-primary" href="/add/{{ elc_lesson.pk }}/">اخذ</a></td>
+        </tr>
+    {% endfor %}
+</table>
+<p> >> </p>
+<a class="btn btn-success table-bordered col-xs-12 col-sm-12 col-lg-12" href={% url "app:final" %}>صفحه ی انتخاب واحد</a>
+</div>
+{% endblock base %}

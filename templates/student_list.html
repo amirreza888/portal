@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block base %}
+
+<h2>صفحه ی دانشجوها</h2>
+
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>کامپیوتر ترم 1
+<a class="btn btn-success" href="/teacher-list/?field=computer">اساتید رشته</a>
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>شماره دانشجویی</th>
+        <th>رشته</th>
+        <th>تعداد واحد</th>
+        <th>مقطع تحصیلی</th>
+    </tr>
+
+    {% for com_student in com_students %}
+        <tr>
+        <td>{{ com_student.first_name }}</td>
+        <td>{{ com_student.last_name }}</td>
+        <td>{{ com_student.id_num }}</td>
+        <td>{{ com_student.field }}</td>
+        <td>{{ com_student.number_of_unit }}</td>
+        <td>{{ com_student.grade }}</td>
+        <td ><a class="btn btn-primary" href={{ com_student.edit_link }}>ویرایش</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+<br>
+<p> >> </p>
+
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>برق ترم 1
+<a class="btn btn-success" href="/teacher-list/?field=electricity2">اساتید رشته</a>
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>شماره دانشجویی</th>
+        <th>رشته</th>
+        <th>تعداد واحد</th>
+        <th>مقطع تحصیلی</th>
+    </tr>
+
+    {% for elc_student in elc_students %}
+        <tr>
+        <td>{{ elc_student.first_name }}</td>
+        <td>{{ elc_student.last_name }}</td>
+        <td>{{ elc_student.id_num }}</td>
+        <td>{{ elc_student.field }}</td>
+        <td>{{ elc_student.number_of_unit }}</td>
+        <td>{{ elc_student.grade }}</td>
+        <td><a class="btn btn-primary" href={{ elc_student.edit_link }}>ویرایش</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+
+<p> >> </p>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>مکانیک ترم 1
+<a class="btn btn-success" href="/teacher-list/?field=Mec1">اساتید رشته</a>
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>شماره دانشجویی</th>
+        <th>رشته</th>
+        <th>تعداد واحد</th>
+        <th>مقطع تحصیلی</th>
+    </tr>
+
+    {% for mc1_student in mc1_students %}
+        <tr>
+        <td>{{ mc1_student.first_name }}</td>
+        <td>{{ mc1_student.last_name }}</td>
+        <td>{{ mc1_student.id_num }}</td>
+        <td>{{ mc1_student.field }}</td>
+        <td>{{ mc1_student.number_of_unit }}</td>
+        <td>{{ mc1_student.grade }}</td>
+        <td><a href={{ mc1_student.edit_link }}>ویرایش</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+<hr>
+<p> >> </p>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<h4>مکانیک ترم 2
+<a class="btn btn-success" href="/teacher-list/?field=Mec2">اساتید رشته</a>
+</h4>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>شماره دانشجویی</th>
+        <th>رشته</th>
+        <th>تعداد واحد</th>
+        <th>مقطع تحصیلی</th>
+    </tr>
+    <tr>
+    {% for mc2_student in mc2_students %}
+        <td>{{ mc2_student.first_name }}</td>
+        <td>{{ mc2_student.last_name }}</td>
+        <td>{{ mc2_student.id_num }}</td>
+        <td>{{ mc2_student.field }}</td>
+        <td>{{ mc2_student.number_of_unit }}</td>
+        <td>{{ mc2_student.grade }}</td>
+        <td><a href={{ mc2_student.edit_link }}>ویرایش</a></td>
+    {% endfor %}
+    </tr>
+</table>
+</div>
+{% endblock base %}

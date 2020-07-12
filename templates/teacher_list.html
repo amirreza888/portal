@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block base %}
+<h3 class="col-xs-12 col-sm-12 col-lg-12">صفحه ی اساتید</h3>
+<table class="table-bordered col-xs-12 col-sm-12 col-lg-12">
+    <tr>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th> شماره ی پرسنلی</th>
+        <th>رشته</th>
+        <th>مرتبه علمی</th>
+    </tr>
+
+    {% for teacher in teachers %}
+        <tr>
+        <td>{{ teacher.first_name }}</td>
+        <td>{{ teacher.last_name }}</td>
+        <td>{{ teacher.id_num }}</td>
+        <td>{{ teacher.field }}</td>
+        <td>{{ teacher.academic_rank }}</td>
+
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
